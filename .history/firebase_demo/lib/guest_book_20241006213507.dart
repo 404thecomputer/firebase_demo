@@ -61,11 +61,12 @@ class _GuestBookState extends State<GuestBook> {
                   child: const Row(
                     children: [
                       Icon(Icons.send),
-                      SizedBox(width: 4),
-                      Text('SEND'),
+                      // SizedBox(width: 4),
+                      // Text('SEND'),
                     ],
                   ),
                 ),
+                
               ],
             ),
           ),
