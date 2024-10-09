@@ -39,16 +39,16 @@ class HomePage extends StatelessWidget {
           ),
           const Header("What we'll be doing"),
           const Paragraph(
-            'Join us for a day full of Firebase Workshops and Pizza!', Colors.black,
+            'Join us for a day full of Firebase Workshops and Pizza!',
           ),
           Consumer<ApplicationState>(
             builder: (context, appState, _) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 switch (appState.attendees) {
-                  1 => const Paragraph('1 person going', Colors.black),
-                  >= 2 => Paragraph('${appState.attendees} people going', Colors.black),
-                  _ => const Paragraph('No one going', Colors.black),
+                  1 => const Paragraph('1 person going'),
+                  >= 2 => Paragraph('${appState.attendees} people going'),
+                  _ => const Paragraph('No one going'),
                 },
                 if (appState.loggedIn) ...[
                   YesNoSelection(

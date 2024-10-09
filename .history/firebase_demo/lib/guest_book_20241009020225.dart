@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+
 import 'src/widgets.dart';
 import 'guest_book_message.dart';
 
@@ -24,12 +24,6 @@ class GuestBook extends StatefulWidget {
 class _GuestBookState extends State<GuestBook> {
   final _formKey = GlobalKey<FormState>(debugLabel: '_GuestBookState');
   final _controller = TextEditingController();
-  Color pickerColor = Colors.black;
-  final Color currentColor = Colors.black;
-
-  void changeColor(Color color) {
-    setState(() => pickerColor = color);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,19 +58,6 @@ class _GuestBookState extends State<GuestBook> {
                       _controller.clear();
                     }
                   },
-                  onLongPress: () {
-                    showDialog(context: context, builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Pick text color'),
-                        content: SingleChildScrollView(
-                          child: HueRingPicker(
-                            pickerColor: currentColor,
-                            onColorChanged: changeColor,
-                          ),
-                        ),
-                      );
-                    }); 
-                  },
                   child: const Row(
                     children: [
                       Icon(Icons.send),
@@ -91,7 +72,7 @@ class _GuestBookState extends State<GuestBook> {
         ),
         const SizedBox(height: 8),
         for (var message in widget.messages)
-          Paragraph('${message.name}: ${message.message}', currentColor),
+          Paragraph('${message.name}: ${message.message}', message.color),
         const SizedBox(height: 8),
       ],
     );

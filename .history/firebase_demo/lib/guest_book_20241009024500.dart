@@ -70,9 +70,9 @@ class _GuestBookState extends State<GuestBook> {
                         title: const Text('Pick text color'),
                         content: SingleChildScrollView(
                           child: HueRingPicker(
-                            pickerColor: currentColor,
-                            onColorChanged: changeColor,
-                          ),
+                              pickerColor: currentColor,
+                              onColorChanged: changeColor,
+                            ),
                         ),
                       );
                     }); 
