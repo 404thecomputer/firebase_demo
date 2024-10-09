@@ -19,15 +19,14 @@ class Header extends StatelessWidget {
 }
 
 class Paragraph extends StatelessWidget {
-  const Paragraph(this.content, this.color, {super.key});
+  const Paragraph(this.content, {super.key});
   final String content;
-  final Color color;
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           content,
-          style: TextStyle(fontSize: 18, color: color),
+          style: const TextStyle(fontSize: 18),
         ),
       );
 }
@@ -54,17 +53,15 @@ class IconAndDetail extends StatelessWidget {
 }
 
 class StyledButton extends StatelessWidget {
-  const StyledButton({required this.child, required this.onPressed, this.onLongPress, super.key});
+  const StyledButton({required this.child, required this.onPressed, super.key});
   final Widget child;
   final void Function() onPressed;
-  final VoidCallback? onLongPress;
 
   @override
   Widget build(BuildContext context) => OutlinedButton(
         style: OutlinedButton.styleFrom(
             side: const BorderSide(color: Colors.deepPurple)),
         onPressed: onPressed,
-        onLongPress: onLongPress,
         child: child,
       );
 }
